@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 const userSchema = new mongoose.Schema(
   {
     fullname: {
@@ -23,39 +24,62 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    otp: {
-      type: String,
-    },
-    otpExpiry: {
-      type: Date,
-    },
+    otp: String,
+    otpExpiry: Date,
+
     role: {
       type: String,
       enum: ["Student", "Recruiter"],
       default: "Student",
       required: true,
     },
+
     profile: {
       bio: {
         type: String,
       },
-      skills: [{ type: String }],
+
+      skills: [
+        {
+          type: String,
+        },
+      ],
+
       resume: {
-        type: String, // URL to resume file
+        type: String,
       },
+
+      profilePhoto: {
+        type: String,
+        default: "",
+      },
+
       company: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Company",
       },
-        profilePhoto: {
-          type: String, // URL to profile photo file
-          default: "",
+
+      aiAnalysis: {
+        type: String,
+        default: "",
+      },
+
+      aiScore: {
+        type: Number,
+        default: 0,
+      },
+
+      suggestedSkills: [
+        {
+          type: String,
         },
-      },
-      termsAcceptedAt: {
-        type: Date,
-      },
+      ],
     },
+
+    termsAcceptedAt: {
+      type: Date,
+    },
+  },
   { timestamps: true }
 );
 

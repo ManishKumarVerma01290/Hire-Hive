@@ -20,12 +20,12 @@ export const sendOtpEmail = async (to, otp) => {
   const transporter = createTransporter();
 
   const mailOptions = {
-    from: `"Job Hunt" <${process.env.EMAIL_USER}>`,
+    from: `"Hire Hive" <${process.env.EMAIL_USER}>`,
     to,
-    subject: "Verify your email - Job Hunt",
+    subject: "Verify your email - Hire Hive",
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 480px; margin: auto; padding: 24px; border: 1px solid #eee; border-radius: 12px;">
-        <h2 style="color: #6B3AC2; margin-bottom: 4px;">Job Hunt</h2>
+        <h2 style="color: #6B3AC2; margin-bottom: 4px;">Hire Hive</h2>
         <p style="color: #555;">Use the code below to verify your email address.</p>
         <div style="font-size: 32px; font-weight: bold; letter-spacing: 8px; color: #111; text-align: center; padding: 16px 0;">
           ${otp}

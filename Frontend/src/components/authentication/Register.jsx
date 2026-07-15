@@ -99,7 +99,7 @@ const Register = () => {
             <h1 className="font-extrabold text-3xl text-[#6B3AC2]">
               Create an Account
             </h1>
-            <p className="text-gray-500 text-sm mt-2">Join Job Hunt today</p>
+            <p className="text-gray-500 text-sm mt-2">Join Hire Hive today</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

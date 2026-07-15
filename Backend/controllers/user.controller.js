@@ -1,3 +1,4 @@
+import { analyzeResume } from "../services/ai.service.js";
 import { User } from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
@@ -448,6 +449,48 @@ export const updateProfile = async (req, res) => {
     res.status(500).json({
       message: "Server Error updating profile",
       success: false,
+    });
+  }
+};
+
+export const analyzeResumeAI = async (req, res) => {
+  try {
+    const user = await User.findById(req.id);
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    const resumeText = `
+Name: ${user.fullname}
+Bio: ${user.profile.bio || ""}
+Skills: ${(user.profile.skills || []).join(", ")}
+Role: ${user.role}
+`;
+
+    const result = await analyzeResume(
+      resumeText,
+      user.profile.skills || []
+    );
+
+    user.profile.aiScore = result.score;
+    user.profile.aiAnalysis = result.analysis;
+    user.profile.suggestedSkills = result.suggestedSkills;
+
+    await user.save();
+
+    return res.status(200).json({
+      success: true,
+      result,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      success: false,
+      message: "AI analysis failed",
     });
   }
 };

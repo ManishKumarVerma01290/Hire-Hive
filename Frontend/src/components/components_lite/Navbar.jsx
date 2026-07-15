@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Avatar, AvatarImage } from "../ui/avatar";
@@ -43,8 +43,8 @@ const Navbar = () => {
         <div>
           <Link to="/">
             <h1 className="text-2xl font-bold cursor-pointer">
-              <span className="text-[#6B3AC2]"> Job </span>{" "}
-              <span className="text-[#FA4F09]">Hunt</span>
+              <span className="text-[#6B3AC2]"> Hire </span>{" "}
+              <span className="text-[#FA4F09]">Hive</span>
             </h1>
           </Link>
         </div>

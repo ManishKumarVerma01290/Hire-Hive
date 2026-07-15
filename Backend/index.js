@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -9,7 +11,6 @@ import jobRoute from "./routes/job.route.js";
 import applicationRoute from "./routes/application.route.js";
 import path from "path";
 
-dotenv.config({});
 const app = express();
 
 //middleware

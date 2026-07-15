@@ -8,6 +8,9 @@ import AppliedJob from "./AppliedJob";
 import EditProfileModal from "./EditProfileModal";
 import { useSelector } from "react-redux";
 import useGetAppliedJobs from "@/hooks/useGetAllAppliedJobs";
+import axios from "axios";
+import { toast } from "sonner";
+import { USER_API_ENDPOINT } from "@/utils/data";
 
  
 const Profile = () => {
@@ -15,6 +18,29 @@ const Profile = () => {
   const [open, setOpen] = useState(false);
   const { user } = useSelector((store) => store.auth);
   const isResume = !!user?.profile?.resume;
+  const [loading, setLoading] = useState(false);
+  const [aiResult, setAiResult] = useState(null);
+
+  const analyzeResume = async () => {
+    try {
+      setLoading(true);
+
+      const res = await axios.post(
+        `${USER_API_ENDPOINT}/analyze-resume`,
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+
+      setAiResult(res.data.result);
+      toast.success("Resume analyzed successfully");
+    } catch (error) {
+      toast.error("AI Analysis failed");
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div>
       <Navbar />
@@ -89,6 +115,31 @@ const Profile = () => {
         </div>
         </div>
       </div>
+      <div className="mt-6">
+        <Button onClick={analyzeResume} disabled={loading}>
+          {loading ? "Analyzing..." : "🤖 Analyze Resume"}
+        </Button>
+      </div>
+
+      {aiResult && (
+        <div className="mt-6 bg-white border rounded-xl p-5 shadow">
+          <h2 className="text-xl font-bold">
+            ATS Score: {aiResult.score}/100
+          </h2>
+
+          <p className="mt-4">{aiResult.analysis}</p>
+
+          <div className="mt-5">
+            <h3 className="font-semibold">Suggested Skills</h3>
+
+            <div className="flex flex-wrap gap-2 mt-2">
+              {aiResult.suggestedSkills.map((skill, index) => (
+                <Badge key={index}>{skill}</Badge>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
       <div className="max-w-4xl mx-auto bg-white rounded-2xl w-[95%] sm:w-full">
         <h1 className="text-lg my-5 font-bold">Applied Jobs</h1>
 

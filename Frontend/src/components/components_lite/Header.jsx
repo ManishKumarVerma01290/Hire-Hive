@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "../ui/button";
 import { Search } from "lucide-react";
 import { PiBuildingOfficeBold } from "react-icons/pi";
@@ -24,7 +24,7 @@ const Header = () => {
               {" "}
               <PiBuildingOfficeBold />
             </span>{" "}
-            No.1 Job Hunt Website
+            No.1 Job Portal Website
           </span>
 
           <h2 className="text-3xl md:text-5xl font-bold leading-tight">

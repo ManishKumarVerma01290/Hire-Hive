@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../components_lite/Navbar.jsx";
 import { Button } from "../ui/button.jsx";
 import { ArrowLeft, Loader2 } from "lucide-react";
@@ -31,7 +31,8 @@ const CompanySetup = () => {
   };
 
   const changeFileHandler = (e) => {
-    const file = e.target.files?.[0];
+    const file = e.target.files?.[0]; 
+    console.log("Selected File:", file);
     setInput({ ...input, file });
   };
 

@@ -8,6 +8,7 @@ import {
   resetPassword,
   updateProfile,
   verifyOtp,
+  analyzeResumeAI,
 } from "../controllers/user.controller.js";
 import authenticateToken from "../middleware/isAuthenticated.js";
 import { singleUpload } from "../middleware/multer.js";
@@ -24,5 +25,9 @@ router.route("/logout").post(logout);
 router
   .route("/profile/update")
   .post(authenticateToken, singleUpload, updateProfile);
+
+router
+  .route("/analyze-resume")
+  .post(authenticateToken, analyzeResumeAI);
 
 export default router;
