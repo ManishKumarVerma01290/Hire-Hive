@@ -96,22 +96,31 @@ https://hire-hive-backend.onrender.com/
 ```
 JOB-PORTAL/
 ├── Backend/
-│   ├── controllers/      # Route logic (user, job, company, application)
-│   ├── models/           # Mongoose schemas
-│   ├── routes/           # Express routes
-│   ├── middleware/       # Auth (JWT) + Multer upload
-│   ├── utils/            # db, cloudinary, datauri, mailer, aiClient
-│   ├── index.js          # App entry (Express server)
-│   └── .env              # Backend secrets (you create this)
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── services/
+│   ├── utils/
+│   ├── index.js
+│   └── .env.example
 │
-└── Frontend/
-    ├── src/
-    │   ├── components/    # UI components (auth, admin, job, shared)
-    │   ├── redux/         # Slices + store
-    │   ├── hooks/         # Custom data-fetching hooks
-    │   └── utils/data.js  # API base URLs
-    └── vite.config.js
-```
+├── Frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   ├── redux/
+│   │   └── utils/
+│   └── vite.config.js
+│
+├── screenshots/
+│   ├── home.png
+│   ├── recruiter-dashboard.png
+│   ├── student-dashboard.png
+│   └── ai-resume-analyzer.png
+│
+└── README.md
 
 ---
 
@@ -260,21 +269,17 @@ Base URL: `http://localhost:5011`
 
 ## 📸 Screenshots
 
-### Home Page
+### 🏠 Home Page
+![Home Page](screenshots/Home.PNG) 
 
-(Add screenshot here)
+### 👨‍💼 Recruiter Dashboard
+![Recruiter Dashboard](screenshots/recruiter-dashboard.PNG)
 
-### Recruiter Dashboard
+### 👨‍🎓 Student Dashboard
+![Student Dashboard](screenshots/student-dashboard.PNG)
 
-(Add screenshot here)
-
-### Student Dashboard
-
-(Add screenshot here)
-
-### AI Resume Analyzer
-
-(Add screenshot here)
+### 🤖 AI Resume Analyzer
+![AI Resume Analyzer](screenshots/ai-resume-analyzer.PNG)
 
 ---
 
