@@ -4,7 +4,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setAllApplicants } from "@/redux/applicationSlice";
-import { APPLICATION_API_ENDPOINT } from "@/utils/data";
+import { APPLICATION_API_END_POINT } from "@/utils/data";
 import Navbar from "../components_lite/Navbar";
 
 const Applicants = () => {
@@ -16,7 +16,7 @@ const Applicants = () => {
     const fetchAllApplicants = async () => {
       try {
         const res = await axios.get(
-          `${APPLICATION_API_ENDPOINT}/${params.id}/applicants`,
+          `${APPLICATION_API_END_POINT}/${params.id}/applicants`,
           { withCredentials: true }
         );
         dispatch(setAllApplicants(res.data.job));

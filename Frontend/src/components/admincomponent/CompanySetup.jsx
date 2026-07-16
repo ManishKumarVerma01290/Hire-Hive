@@ -5,7 +5,7 @@ import { ArrowLeft, Loader2 } from "lucide-react";
 import { Label } from "../ui/label.jsx";
 import { Input } from "../ui/input.jsx";
 import axios from "axios";
-import { COMPANY_API_ENDPOINT } from "../../utils/data.js";
+import { COMPANY_API_END_POINT } from "../../utils/data.js";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "sonner";
 import { useSelector } from "react-redux";
@@ -49,7 +49,7 @@ const CompanySetup = () => {
     try {
       setLoading(true);
       const res = await axios.put(
-        `${COMPANY_API_ENDPOINT}/update/${params.id}`,
+        `${COMPANY_API_END_POINT}/update/${params.id}`,
         formData,
         {
           headers: {

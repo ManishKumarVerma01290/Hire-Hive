@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "sonner";
-import { USER_API_ENDPOINT } from "@/utils/data";
+import { USER_API_END_POINT } from "@/utils/data";
 
 const ResetPassword = () => {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ const ResetPassword = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${USER_API_ENDPOINT}/forgot-password`,
+        `${USER_API_END_POINT}/forgot-password`,
         { email: targetEmail },
         { headers: { "Content-Type": "application/json" }, withCredentials: true }
       );
@@ -78,7 +78,7 @@ const ResetPassword = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${USER_API_ENDPOINT}/reset-password`,
+        `${USER_API_END_POINT}/reset-password`,
         { email, otp, newPassword },
         { headers: { "Content-Type": "application/json" }, withCredentials: true }
       );

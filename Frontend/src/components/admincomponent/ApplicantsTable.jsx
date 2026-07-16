@@ -13,7 +13,7 @@ import { MoreHorizontal } from "lucide-react";
 import { useSelector } from "react-redux";
 import { toast } from "sonner";
 import axios from "axios";
-import { APPLICATION_API_ENDPOINT } from "@/utils/data";
+import { APPLICATION_API_END_POINT } from "@/utils/data";
 
 const shortlistingStatus = ["Accepted", "Rejected"];
 
@@ -25,7 +25,7 @@ const ApplicantsTable = () => {
     try {
       axios.defaults.withCredentials = true;
       const res = await axios.post(
-        `${APPLICATION_API_ENDPOINT}/status/${id}/update`,
+        `${APPLICATION_API_END_POINT}/status/${id}/update`,
         { status }
       );
       console.log(res);

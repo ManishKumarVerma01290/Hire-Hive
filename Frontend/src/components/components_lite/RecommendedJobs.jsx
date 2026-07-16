@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Badge } from "../ui/badge";
 import { Avatar, AvatarImage } from "../ui/avatar";
-import { JOB_API_ENDPOINT } from "@/utils/data";
+import { JOB_API_END_POINT } from "@/utils/data";
 
 const RecommendedJobs = ({ jobId }) => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const RecommendedJobs = ({ jobId }) => {
       setLoading(true);
       try {
         const res = await axios.get(
-          `${JOB_API_ENDPOINT}/recommendations/${jobId}`,
+          `${JOB_API_END_POINT}/recommendations/${jobId}`,
           { withCredentials: true }
         );
         if (res.data.status) {

@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
 import axios from "axios"; // Import axios
 import { setUser } from "@/redux/authSlice";
-import { USER_API_ENDPOINT } from "@/utils/data";
+import { USER_API_END_POINT } from "@/utils/data";
 
 const Navbar = () => {
   const { user } = useSelector((store) => store.auth);
@@ -19,7 +19,7 @@ const Navbar = () => {
 
   const logoutHandler = async () => {
     try {
-      const res = await axios.post(`${USER_API_ENDPOINT}/logout`, {
+      const res = await axios.post(`${USER_API_END_POINT}/logout`, {
         withCredentials: true,
       });
       if (res && res.data && res.data.success) {

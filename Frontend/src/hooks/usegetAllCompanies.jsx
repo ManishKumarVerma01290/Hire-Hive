@@ -1,5 +1,5 @@
 import { setCompanies } from "@/redux/companyslice";
-import { COMPANY_API_ENDPOINT } from "@/utils/data";
+import { COMPANY_API_END_POINT } from "@/utils/data";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -9,7 +9,7 @@ const useGetAllCompanies = () => {
   useEffect(() => {
     const fetchCompanies = async () => {
       try {
-        const res = await axios.get(`${COMPANY_API_ENDPOINT}/get`, {
+        const res = await axios.get(`${COMPANY_API_END_POINT}/get`, {
           withCredentials: true,
         });
         console.log("called");

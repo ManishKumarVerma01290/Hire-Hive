@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "sonner";
-import { USER_API_ENDPOINT } from "@/utils/data";
+import { USER_API_END_POINT } from "@/utils/data";
 import { setUser } from "@/redux/authSlice";
 import { Loader2, KeyRound } from "lucide-react";
 
@@ -58,7 +58,7 @@ const EditProfileModal = ({ open, setOpen }) => {
     try {
       setLoading(true);
       const res = await axios.post(
-        `${USER_API_ENDPOINT}/profile/update`,
+        `${USER_API_END_POINT}/profile/update`,
         formData,
         {
           headers: {

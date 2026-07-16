@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import useGetAppliedJobs from "@/hooks/useGetAllAppliedJobs";
 import axios from "axios";
 import { toast } from "sonner";
-import { USER_API_ENDPOINT } from "@/utils/data";
+import { USER_API_END_POINT } from "@/utils/data";
 
  
 const Profile = () => {
@@ -26,7 +26,7 @@ const Profile = () => {
       setLoading(true);
 
       const res = await axios.post(
-        `${USER_API_ENDPOINT}/analyze-resume`,
+        `${USER_API_END_POINT}/analyze-resume`,
         {},
         {
           withCredentials: true,

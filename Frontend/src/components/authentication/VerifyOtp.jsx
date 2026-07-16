@@ -8,7 +8,7 @@ import axios from "axios";
 import { toast } from "sonner";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/redux/authSlice";
-import { USER_API_ENDPOINT } from "@/utils/data";
+import { USER_API_END_POINT } from "@/utils/data";
 
 const VerifyOtp = () => {
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ const VerifyOtp = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        `${USER_API_ENDPOINT}/verify-otp`,
+        `${USER_API_END_POINT}/verify-otp`,
         { email, otp },
         { headers: { "Content-Type": "application/json" }, withCredentials: true }
       );
@@ -66,7 +66,7 @@ const VerifyOtp = () => {
     try {
       setResending(true);
       const res = await axios.post(
-        `${USER_API_ENDPOINT}/resend-otp`,
+        `${USER_API_END_POINT}/resend-otp`,
         { email },
         { headers: { "Content-Type": "application/json" }, withCredentials: true }
       );

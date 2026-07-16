@@ -1,5 +1,5 @@
 import { setAllAppliedJobs } from "@/redux/jobSlice";
-import { APPLICATION_API_ENDPOINT } from "@/utils/data";
+import { APPLICATION_API_END_POINT } from "@/utils/data";
 import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -9,7 +9,7 @@ const useGetAppliedJobs = () => {
   useEffect(() => {
     const fetchAppliedJobs = async () => {
       try {
-        const res = await axios.get(`${APPLICATION_API_ENDPOINT}/get`, {
+        const res = await axios.get(`${APPLICATION_API_END_POINT}/get`, {
           withCredentials: true,
         });
         console.log("API Response:", res.data);

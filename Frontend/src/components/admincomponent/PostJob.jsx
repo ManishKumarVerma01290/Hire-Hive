@@ -15,7 +15,7 @@ import {
   SelectValue,
 } from "../ui/select";
 import axios from "axios";
-import { JOB_API_ENDPOINT } from "@/utils/data";
+import { JOB_API_END_POINT } from "@/utils/data";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
@@ -52,7 +52,7 @@ const PostJob = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await axios.post(`${JOB_API_ENDPOINT}/post`, input, {
+      const res = await axios.post(`${JOB_API_END_POINT}/post`, input, {
         headers: {
           "Content-Type": "application/json",
         },

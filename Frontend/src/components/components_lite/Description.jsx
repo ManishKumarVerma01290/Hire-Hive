@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { useParams, useNavigate } from "react-router-dom";
-import { JOB_API_ENDPOINT, APPLICATION_API_ENDPOINT } from "@/utils/data";
+import { JOB_API_END_POINT, APPLICATION_API_END_POINT } from "@/utils/data";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setSingleJob } from "@/redux/jobSlice";
@@ -35,7 +35,7 @@ const Description = () => {
     }
     try {
       const res = await axios.get(
-        `${APPLICATION_API_ENDPOINT}/apply/${jobId}`,
+        `${APPLICATION_API_END_POINT}/apply/${jobId}`,
         { withCredentials: true }
       );
       if (res.data.success) {
@@ -59,7 +59,7 @@ const Description = () => {
       setLoading(true);
       setError(null);
       try {
-        const res = await axios.get(`${JOB_API_ENDPOINT}/get/${jobId}`, {
+        const res = await axios.get(`${JOB_API_END_POINT}/get/${jobId}`, {
           withCredentials: true,
         });
         console.log("API Response:", res.data);

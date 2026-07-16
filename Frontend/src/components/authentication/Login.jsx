@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 import axios from "axios";
 import { toast } from "sonner";
-import { USER_API_ENDPOINT } from "@/utils/data.js";
+import { USER_API_END_POINT } from "@/utils/data.js";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading, setUser } from "@/redux/authSlice";
 
@@ -33,7 +33,7 @@ const Login = () => {
 
     try {
       dispatch(setLoading(true)); // Start loading
-      const res = await axios.post(`${USER_API_ENDPOINT}/login`, input, {
+      const res = await axios.post(`${USER_API_END_POINT}/login`, input, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
